@@ -6,6 +6,7 @@ class MyComponent extends React.Component {
     age: "4",
   };
   handleClickButton = () => {
+    console.log("hit the button");
     alert("click me");
   };
   render() {
