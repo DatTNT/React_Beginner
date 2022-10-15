@@ -4,20 +4,14 @@ import "./App.scss";
 // import { increaseCounter, decreaseCounter } from ".redux/action/counterAction"
 import MyComponent from "../components/MyComponent"
 import React from "react";
+import SetState from '../components/SetState';
 
 class App extends React.Component {
-  state = {
-    name: 'DavidTran',
-    address: 'Hoi Dan IT',
-    age: 26
-  };
 
 
   render() {
     return (
-      <div>
-        My name is {this.state.name} i'm from {this.state.address}
-      </div>
+      <SetState />
 
     );
   }
