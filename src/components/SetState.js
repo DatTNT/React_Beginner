@@ -19,7 +19,13 @@ class SetState extends React.Component {
 
     handleOnChangeName = (event) => {
         console.log(event.target.value);
+        //chuyển đổi trạng thái thì bắt buộc phải gọi đến hàm setState component
         this.setState({ name: event.target.value })
+
+    }
+    handleOnChangeAge = (event) => {
+        console.log(event.target.value);
+        this.setState({ age: event.target.value })
 
     }
 
@@ -39,8 +45,21 @@ class SetState extends React.Component {
                 <button onMouseOver={this.handleOnMoverOver}>HoverMe</button>
                 <br />
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
-                    <input type="text"
+                    <input
+
+                        value={this.state.name}
+                        type="text"
                         onChange={(event) => { this.handleOnChangeName(event) }}
+
+                    />
+                    <button >Submit</button>
+                </form>
+                <form onSubmit={(event) => this.handleOnSubmit(event)}>
+                    <input
+
+                        value={this.state.age}
+                        type="text"
+                        onChange={(event) => { this.handleOnChangeAge(event) }}
 
                     />
                     <button >Submit</button>
