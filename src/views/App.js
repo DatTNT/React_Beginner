@@ -5,7 +5,6 @@ import "./App.scss";
 import MyComponent from "../components/MyComponent"
 import React from "react";
 import SetState from '../components/SetState';
-import FromState from '../components/Form';
 
 class App extends React.Component {
 
@@ -14,7 +13,6 @@ class App extends React.Component {
     return (
       <>
         <SetState />
-        {/* <FromState /> */}
 
       </>
 
