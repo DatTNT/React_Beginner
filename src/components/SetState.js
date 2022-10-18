@@ -8,7 +8,7 @@ class SetState extends React.Component {
         listUser: [
             { id: 1, name: "TuanAnh", age: "56" },
             { id: 2, name: "HuongNhan", age: "51" },
-            { id: 3, name: "HienNhu", age: "19" },
+            { id: 3, name: "HienNhu", age: "12" },
         ]
     }
     render() {
