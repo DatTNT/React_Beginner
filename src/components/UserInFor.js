@@ -40,8 +40,6 @@ class UserInFor extends React.Component {
     render() {
         return (
             <>
-
-
                 My name is {this.state.name} i'm {this.state.age}
 
                 <button onMouseOver={this.handleOnMoverOver}>HoverMe</button>
