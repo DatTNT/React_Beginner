@@ -1,21 +1,14 @@
 import React from 'react';
 
-class UserInFor extends React.Component {
+class AddUserInFor extends React.Component {
     state = {
         name: 'DavidTran',
         address: 'Hoi Dan IT',
         age: 26
     };
-    // handleClick = () => {
-    //     console.log(">> click me my button");
-    //     console.log("My name is: ", this.state.name);
-    //     //merge State => react class
-    //     this.setState({
-    //         name: 'David',
-    //         age: Math.floor((Math.random() * 100) + 1)
-    //     })
 
-    // }
+
+
 
     handleOnChangeName = (event) => {
         console.log(event.target.value);
@@ -31,12 +24,19 @@ class UserInFor extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        alert('me')
+        console.log(this.state);
+        this.props.handleAddNewUser({
+            id: Math.floor((Math.random() * 100) + 1) + '-random',
+            name: this.state.name,
+            age: this.state.age
+        });
+
     }
 
     handleOnMoverOver = (event) => {
         console.log(event.pageX);
     }
+
     render() {
         return (
             <>
@@ -44,7 +44,7 @@ class UserInFor extends React.Component {
 
                 <button onMouseOver={this.handleOnMoverOver}>HoverMe</button>
                 <br />
-                <form onSubmit={(event) => this.handleOnSubmit(event)} >
+                <form onSubmit={(event) => this.handleOnSubmit(event)}  >
                     <label htmlFor="">Your name: </label>
                     <input type="text" value={this.state.name}
                         onChange={(event) => this.handleOnChangeName(event)}
@@ -52,7 +52,7 @@ class UserInFor extends React.Component {
                     <label htmlFor="">Your age: </label>
                     <input type="text" value={this.state.age}
                         onChange={(event) => this.handleOnChangeAge(event)}
-                    />
+                    />''
                     <button>Submit</button>
 
                 </form>
@@ -69,4 +69,4 @@ class UserInFor extends React.Component {
 
 
 }
-export default UserInFor;
+export default AddUserInFor;
