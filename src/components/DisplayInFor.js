@@ -1,5 +1,6 @@
 import React from 'react';
-import './DisplayInFor.scss'
+import './DisplayInFor.scss';
+import logo from '../views/logo.svg'
 
 class DisplayInFo extends React.Component {
 
@@ -19,6 +20,7 @@ class DisplayInFo extends React.Component {
         console.log(listUser);
         return (
             <div className='display-infor-container'>
+                <img src={logo} alt="" />
                 <div>
                     <span onClick={() => { this.handleOnHideShow() }}>
 
