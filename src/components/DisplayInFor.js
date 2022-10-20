@@ -29,7 +29,7 @@ class DisplayInFo extends React.Component {
                 </div>
                 {/* //dau && laf có nghĩa luôn luôn đúng khi dùng phép so sánh */}
                 {this.state.isShowListUser &&
-                    <div>
+                    <>
                         {listUser.map((user) => {
                             console.log(user)
                             //"+" this is convert String to Number
@@ -41,7 +41,7 @@ class DisplayInFo extends React.Component {
                                 </div>
                             )
                         })}
-                    </div>
+                    </>
                 }
             </div>
         )
