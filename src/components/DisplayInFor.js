@@ -14,6 +14,7 @@ class DisplayInFo extends React.Component {
 
     }
 
+
     render() {
         //destructing array/object
         const { listUser } = this.props;
@@ -37,8 +38,13 @@ class DisplayInFo extends React.Component {
                                 <div key={user.id} className={+user.age > 18 ? "red" : "green"}>
                                     <div>This name: {user.name}</div>
                                     <div>This age: {user.age} </div>
+                                    <div>
+                                        <button onClick={() => this.props.handleDeleteuser(user.id)}>Delete</button>
+                                    </div>
                                     <hr />
+
                                 </div>
+
                             )
                         })}
                     </>

@@ -19,6 +19,14 @@ class SetState extends React.Component {
 
         })
     }
+    handleDeleteuser = (userID) => {
+        const listUserOnClone = [...this.state.listUser];
+        const deleteListuser = listUserOnClone.filter((user) => user.id !== userID);
+        this.setState({
+            listUser: deleteListuser
+        })
+
+    }
     render() {
 
         //Khi muon test 1 ham thì mình clg nó ở sau thằng render luôn hạn chế clg ở trong thằng html
@@ -29,12 +37,14 @@ class SetState extends React.Component {
 
                 <AddUserInFor
                     handleAddNewUser={this.handleAddNewUser}
+
                 />
                 <br />
                 <DisplayInfor
                     listUser={this.state.listUser}
-                >
-                </DisplayInfor>
+                    handleDeleteuser={this.handleDeleteuser}
+                />
+
             </div >
         )
     }

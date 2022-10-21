@@ -24,7 +24,7 @@ class AddUserInFor extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        console.log("AddUser", this.state);
         this.props.handleAddNewUser({
             id: Math.floor((Math.random() * 100) + 1) + '-random',
             name: this.state.name,
