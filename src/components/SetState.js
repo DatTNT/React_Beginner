@@ -15,13 +15,18 @@ class SetState extends React.Component {
         console.log("data parent", userObj)
         console.log(this.state.listUser);
         this.setState({
-            listUser: [...this.state.listUser,userObj ]
+            listUser: [...this.state.listUser, userObj]
 
         })
     }
     render() {
+
+        //Khi muon test 1 ham thì mình clg nó ở sau thằng render luôn hạn chế clg ở trong thằng html
+
+
         return (
             <div>
+
                 <AddUserInFor
                     handleAddNewUser={this.handleAddNewUser}
                 />
