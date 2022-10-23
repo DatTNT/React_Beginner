@@ -11,13 +11,13 @@ class AddUserInFor extends React.Component {
 
 
     handleOnChangeName = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         //chuyển đổi trạng thái thì bắt buộc phải gọi đến hàm setState component
         this.setState({ name: event.target.value })
 
     }
     handleOnChangeAge = (event) => {
-        console.log(event.target.value);
+        // console.log(event.target.value);
         this.setState({ age: event.target.value })
 
     }
@@ -34,7 +34,7 @@ class AddUserInFor extends React.Component {
     }
 
     handleOnMoverOver = (event) => {
-        console.log(event.pageX);
+        // console.log(event.pageX);
     }
 
     render() {
@@ -52,7 +52,7 @@ class AddUserInFor extends React.Component {
                     <label htmlFor="">Your age: </label>
                     <input type="text" value={this.state.age}
                         onChange={(event) => this.handleOnChangeAge(event)}
-                    />''
+                    />
                     <button>Submit</button>
 
                 </form>

@@ -13,7 +13,7 @@ class SetState extends React.Component {
     }
     handleAddNewUser = (userObj) => {
         console.log("data parent", userObj)
-        console.log(this.state.listUser);
+        // console.log(this.state.listUser);
         this.setState({
             listUser: [...this.state.listUser, userObj]
 
