@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './DisplayInFor.scss';
 import logo from '../views/logo.svg'
 
@@ -77,6 +77,13 @@ import logo from '../views/logo.svg'
 // }
 const DisplayInFo = (props) => {
     const { listUser } = props;
+    const [isShowHideListUser, setShowHideListuser] = useState(true);
+
+    const handleShowHideListUser = () => {
+        setShowHideListuser(!isShowHideListUser)
+
+    }
+
     return (
         <div className='display-infor-container'>
             <img src={logo} alt="" />
@@ -86,8 +93,13 @@ const DisplayInFo = (props) => {
                         {this.state.isShowListUser === true ? "Hide list of a Users:" : "Hint list of a Users:"}
                     </span>
                 </div> */}
+            <div>
+                <span onClick={() => handleShowHideListUser()}>
+                    {isShowHideListUser === true ? 'hide list User' : 'show list User'}
+                </span>
+            </div>
             {/* //dau && laf có nghĩa luôn luôn đúng khi dùng phép so sánh */}
-            {true &&
+            {isShowHideListUser &&
                 <>
                     {listUser.map((user) => {
                         // console.log(user)
