@@ -10,8 +10,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
   
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+
   
+  .app-container{
+    .header-container{
+      .navbar-nav {
+        .nav-link{
+          &.active{
+            color: red;
+          }
+        }
+      }
+    }
+  }
