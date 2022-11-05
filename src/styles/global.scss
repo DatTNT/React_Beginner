@@ -1,32 +1,88 @@
-
-
 body {
-  padding: 20px;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  
-.app-container{
-  .header-container{
-      .navbar-nav {
-        z-index: 10;
-        opacity: 0.1;
-        .nav-link{
-          &.active{
-            color: red;
+@media (min-width: 1300px) {
+  .container-xxl,
+  .container-xl,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 1500px !important;
+  }
+}
+
+.app-container {
+  .header-container {
+    .btn-login {
+      border-radius: 5px;
+      margin-right: 15px;
+      padding: 0 15px;
+      border: 1px solid #535353;
+      height: 35px;
+    }
+    .btn-signup {
+      border-radius: 7px;
+      padding: 0 15px;
+      background: #303030;
+      color: white;
+      height: 35px;
+      &:hover {
+        background: black;
+      }
+    }
+    .navbar {
+      z-index: 10;
+      // opacity: 0.6;
+      background-color: rgba(0, 0, 0, 0) !important;
+      .nav-link {
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+  .homepage-container {
+    .homepage-content {
+      // margin-top: 10vh;
+      padding: 100px;
+      position: relative;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .title-1 {
+        font-size: 65px;
+        // font-weight: bold;
+      }
+      .title-2 {
+        font-size: 20px;
+        font-weight: lighter;
+      }
+      .title-3 {
+        button {
+          border-radius: 7px;
+          padding: 0 15px;
+          background: #303030;
+          color: white;
+          height: 7vh;
+          &:hover {
+            background: black;
           }
         }
       }
     }
   }
+}
 
-video{
+video {
   position: fixed;
   bottom: 0;
   width: 100vw;
