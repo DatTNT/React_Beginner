@@ -9,6 +9,9 @@ import {
     SidebarContent,
 } from 'react-pro-sidebar';
 import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
+import { SiReactivex, } from 'react-icons/si'
+import { AiFillExperiment } from 'react-icons/ai'
+import { FiActivity } from "react-icons/fi";
 
 import sidebarBg from '../../assets/bg2.jpg';
 
@@ -36,29 +39,30 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                             whiteSpace: 'nowrap',
                         }}
                     >
-                        TienDatDev
+                        <SiReactivex size={'2em'} color={"00bfff"} />
+                        <span>TienDatDev</span>
                     </div>
                 </SidebarHeader>
 
                 <SidebarContent>
                     <Menu iconShape="circle">
                         <MenuItem
-                            icon={<FaTachometerAlt />}
-                            suffix={<span className="badge red">New</span>}
-                        >
+                            icon={<AiFillExperiment />}
 
+                        >
+                            Dashboard
                         </MenuItem>
-                        <MenuItem icon={<FaGem />}> Components</MenuItem>
+
                     </Menu>
                     <Menu iconShape="circle">
-                        <SubMenu
-                            suffix={<span className="badge yellow">3</span>}
 
-                            icon={<FaRegLaughWink />}
+                        <SubMenu
+                            icon={<FiActivity />}
+                            title="Features"
                         >
-                            <MenuItem>1</MenuItem>
-                            <MenuItem>2</MenuItem>
-                            <MenuItem>3</MenuItem>
+                            <MenuItem>Quản lý User</MenuItem>
+                            <MenuItem>Quản lý bài quiz</MenuItem>
+                            <MenuItem>Quản lý câu hỏi</MenuItem>
                         </SubMenu>
                     </Menu>
                 </SidebarContent>
