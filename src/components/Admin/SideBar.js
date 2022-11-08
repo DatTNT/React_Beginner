@@ -75,14 +75,14 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                         }}
                     >
                         <a
-                            href="https://github.com/azouaoui-med/react-pro-sidebar"
+                            href="https://github.com/DatTNT/React_Beginner"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
                         >
-                            <FaGithub />
+                            <FaGithub size={'2em'} />
                             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                ViewSource
+                                TienDatDev
                             </span>
                         </a>
                     </div>
