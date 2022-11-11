@@ -12,8 +12,10 @@ import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } fro
 import { SiReactivex, } from 'react-icons/si'
 import { AiFillExperiment } from 'react-icons/ai'
 import { FiActivity } from "react-icons/fi";
+import { Link } from 'react-router-dom'
 
 import sidebarBg from '../../assets/bg2.jpg';
+import './SideBar.scss'
 
 const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
     return (
@@ -51,6 +53,7 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
 
                         >
                             Dashboard
+                            <Link to="/admins" />
                         </MenuItem>
 
                     </Menu>
@@ -60,7 +63,9 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                             icon={<FiActivity />}
                             title="Features"
                         >
-                            <MenuItem>Quản lý User</MenuItem>
+                            <MenuItem>Quản lý User
+                                <Link to="/admins/manage-users" />
+                            </MenuItem>
                             <MenuItem>Quản lý bài quiz</MenuItem>
                             <MenuItem>Quản lý câu hỏi</MenuItem>
                         </SubMenu>
@@ -71,18 +76,18 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                     <div
                         className="sidebar-btn-wrapper"
                         style={{
-                            padding: '20px 24px',
+                            padding: '20px 0px',
                         }}
                     >
                         <a
-                            href="https://github.com/azouaoui-med/react-pro-sidebar"
+                            href="https://github.com/DatTNT/React_Beginner"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
                         >
-                            <FaGithub />
+                            <FaGithub size={'1em'} />
                             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                ViewSource
+                                TienDatDev
                             </span>
                         </a>
                     </div>
