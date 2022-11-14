@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { FiPlus } from 'react-icons/fi';
 
 
 const ModalCreateUser = () => {
@@ -8,6 +9,24 @@ const ModalCreateUser = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [role, setRole] = useState("USER");
+    const [image, setImage] = useState("");
+    const [previewImage, setPreviewImage] = useState("");
+
+    //Preview Image When clicked button
+    const handleUpload = (event) => {
+        if (event.target && event.target.files && event.target.files[0]) {
+            setPreviewImage(URL.createObjectURL(event.target.files[0]))
+            setImage(event.target.files[0])
+        } else {
+            // setPreviewImage("")
+        }
+
+    }
 
     return (
         <>
@@ -28,31 +47,57 @@ const ModalCreateUser = () => {
                 <Modal.Body>
                     <form className="row g-3">
                         <div className="col-md-6">
-                            <label className="form-label">Email</label>
-                            <input type="email" className="form-control" />
+                            <label className="form-label" >Email</label>
+                            <input type="email"
+                                className="form-control"
+                                value={email}
+                                onChange={(event) => setEmail(event.target.value)}
+                            />
                         </div>
                         <div className="col-md-6">
-                            <label className="form-label">Password</label>
-                            <input type="password" className="form-control" />
+                            <label className="form-label" >Password</label>
+                            <input type="password"
+                                className="form-control"
+                                value={password}
+                                onChange={(event) => setPassword(event.target.value)}
+                            />
                         </div>
                         <div className="col-md-6">
-                            <label className="form-label">City</label>
-                            <input type="text" className="form-control" />
+                            <label className="form-label">UserName</label>
+                            <input type="text"
+                                className="form-control"
+                                value={username}
+                                onChange={(event) => setUsername(event.target.value)}
+                            />
                         </div>
                         <div className="col-md-4">
                             <label className="form-label">Role</label>
-                            <select i className="form-select">
-                                <option selected value="USER">USER</option>
+                            <select className="form-select" onChange={(event) => setRole(event.target.value)}>
+                                <option value="USER">USER</option>
                                 <option value="ADMIN">ADMIN</option>
                             </select>
                         </div>
                         <div className="col-md-12">
-                            <label className="form-label">Upload File Image</label>
-                            <input type="file" hidden />
+                            <label className="form-label label-upload" htmlFor='labelUpload'>
+                                <FiPlus />
+                                Upload File Image
+                            </label>
+                            <input type="file"
+                                id="labelUpload"
+                                value={image}
+                                onChange={(event) => handleUpload(event)}
+                                hidden
+                            />
+
                         </div>
                         <div className="col-md-12 img-preview">
-                            {/* <span>heheheheh</span> */}
-                            <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ys5jqwvg6pgtpacb5kqb/V%C3%A9%20V%C3%A0o%20C%E1%BB%95ng%20IMG%20Worlds%20of%20Adventure,%20Dubai%20.jpg" />
+                            {previewImage ?
+                                <img src={previewImage} />
+                                :
+                                <span>previewImage</span>
+                            }
+
+
                         </div>
                     </form>
                 </Modal.Body>
