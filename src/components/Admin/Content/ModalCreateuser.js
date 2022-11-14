@@ -22,10 +22,7 @@ const ModalCreateUser = () => {
         if (event.target && event.target.files && event.target.files[0]) {
             setPreviewImage(URL.createObjectURL(event.target.files[0]))
             setImage(event.target.files[0])
-        } else {
-            // setPreviewImage("")
         }
-
     }
 
     return (
@@ -72,7 +69,10 @@ const ModalCreateUser = () => {
                         </div>
                         <div className="col-md-4">
                             <label className="form-label">Role</label>
-                            <select className="form-select" onChange={(event) => setRole(event.target.value)}>
+                            <select className="form-select"
+                                onChange={(event) => setRole(event.target.value)}
+                                value={role}
+                            >
                                 <option value="USER">USER</option>
                                 <option value="ADMIN">ADMIN</option>
                             </select>
@@ -84,7 +84,7 @@ const ModalCreateUser = () => {
                             </label>
                             <input type="file"
                                 id="labelUpload"
-                                value={image}
+
                                 onChange={(event) => handleUpload(event)}
                                 hidden
                             />
