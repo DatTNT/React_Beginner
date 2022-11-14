@@ -20,6 +20,7 @@ const ModalCreateUser = () => {
                 onHide={handleClose}
                 size="xl"
                 backdrop="static"
+                className="modal-add-user"
             >
                 <Modal.Header closeButton>
                     <Modal.Title>Add new Users</Modal.Title>
@@ -46,8 +47,12 @@ const ModalCreateUser = () => {
                             </select>
                         </div>
                         <div className="col-md-12">
-                            <label className="form-label">Image</label>
-                            <input type="file" class="form-control" />
+                            <label className="form-label">Upload File Image</label>
+                            <input type="file" hidden />
+                        </div>
+                        <div className="col-md-12 img-preview">
+                            {/* <span>heheheheh</span> */}
+                            <img src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1200,h_630/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/ys5jqwvg6pgtpacb5kqb/V%C3%A9%20V%C3%A0o%20C%E1%BB%95ng%20IMG%20Worlds%20of%20Adventure,%20Dubai%20.jpg" />
                         </div>
                     </form>
                 </Modal.Body>
