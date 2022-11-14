@@ -1,4 +1,4 @@
-.manage-usr-container {
+.manage-user-container {
   .users-content {
   }
 }
@@ -31,6 +31,20 @@
     cursor: pointer;
     &:hover {
       background: #f30017;
+    }
+  }
+}
+.manage-user-container {
+  padding: 10px;
+  .title {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .users-content {
+    .btn-add-new {
+      button {
+        margin: 15px 0;
+      }
     }
   }
 }
