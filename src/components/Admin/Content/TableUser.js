@@ -4,20 +4,8 @@ import { getAllUser } from "../../../services/apiServices"
 
 const Tableuser = (props) => {
 
-    const [listUser, setListUsers] = useState([]);
+    const { listUsers } = props;
 
-    useEffect(() => {
-
-        fetchListUser()
-    }, []);
-
-    const fetchListUser = async () => {
-        let res = await getAllUser();
-        // console.log(res);
-        if (res.EC === 0) {
-            setListUsers(res.DT)
-        }
-    }
     // console.log("hehehehhe");
 
     return (
@@ -33,9 +21,9 @@ const Tableuser = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {listUser && listUser.length > 0 &&
+                    {listUsers && listUsers.length > 0 &&
 
-                        listUser.map((item, index) => {
+                        listUsers.map((item, index) => {
                             return (
                                 <tr key={`table-user-${index}`}>
                                     <td scope="row">{index + 1}</td>
@@ -51,7 +39,7 @@ const Tableuser = (props) => {
                             )
                         })
                     }
-                    {listUser && listUser.length === 0 &&
+                    {listUsers && listUsers.length === 0 &&
                         <tr>
                             <td colSpan="4"> Not Found Data</td>
                         </tr>
