@@ -1,21 +1,52 @@
+import { useState } from 'react'
+import ModalCreateUser from './ModalCreateUser';
+import '../Content/ManageUser.scss';
+import { FcPlus } from 'react-icons/fc';
+import { useEffect } from "react";
+import { getAllUser } from "../../../services/apiServices"
 
-import ModalCreateUser from './ModalCreateuser';
+import TableUser from "./TableUser"
 
 const ManageUser = (props) => {
+    const [showModelCreateuser, setShowModelCreateuser] = useState(false);
+
+    const [listUser, setListUsers] = useState([]);
+    //
+    useEffect(() => {
+
+        fetchListUser()
+    }, []);
+
+    const fetchListUser = async () => {
+        let res = await getAllUser();
+        // console.log(res);
+        if (res.EC === 0) {
+            setListUsers(res.DT)
+        }
+    }
+
     return (
         <>
-            <div className="manage-usr-container">
+            <div className="manage-user-container">
                 <div className="title">
                     Manage User
                 </div>
                 <div className="users-content">
-                    <div>
-                        <button>Add new users</button>
+                    <div className="btn-add-new">
+                        {/* class button bootstrap */}
+                        <button className="btn btn-primary" onClick={() => setShowModelCreateuser(true)}>
+                            <FcPlus />
+                            Add new users
+                        </button>
                     </div>
-                    <div>
-                        Table User
-                        <ModalCreateUser />
+                    <div className="table-users-container">
+                        <TableUser listUsers={listUser} />
                     </div>
+                    <ModalCreateUser
+                        show={showModelCreateuser}
+                        setShow={setShowModelCreateuser}
+                        fetchListUsers={fetchListUser}
+                    />
                 </div>
             </div>
         </>
