@@ -84,12 +84,12 @@ const ManageUser = (props) => {
                         fetchListUsers={fetchListUser}
                     />
 
-                    {/* <ModalViewUser
+                    <ModalViewUser
                         show={showModelViewUser}
                         setShow={setshowModelViewUser}
                         dataUpdate={dataUpdate}
-                        
-                    /> */}
+                        resetUpdateData={resetUpdateData}
+                    />
                 </div>
             </div>
         </>
