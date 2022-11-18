@@ -4,12 +4,12 @@ import Modal from 'react-bootstrap/Modal';
 import { FiPlus } from 'react-icons/fi';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { putUpdateUser } from "../../../services/apiServices"
+import { postCreateNewUser } from "../../../services/apiServices"
 import { useEffect } from 'react';
 //Check oject
 import _ from 'lodash'
 
-const ModalUpdateUser = (props) => {
+const ModalViewUser = (props) => {
     const { show, setShow, dataUpdate } = props; //variable props is object then use {} 
 
 
@@ -21,7 +21,6 @@ const ModalUpdateUser = (props) => {
         setRole("USER")
         setImage("")
         setPreviewImage("")
-        props.resetUpdateData()
     };
 
     const [email, setEmail] = useState("");
@@ -77,9 +76,17 @@ const ModalUpdateUser = (props) => {
             return;
         }
 
+        //check PassWord
+        if (!password) {
+            toast.error('InvalidPassWord')
+            // toast.success('EmailSus')
+            return;
+        }
+
+
 
         // import 
-        let data = await putUpdateUser(dataUpdate.id, username, role, image);
+        let data = await postCreateNewUser(email, password, username, role, image);
 
         console.log(">>>> component res: ", data);
 
@@ -177,12 +184,12 @@ const ModalUpdateUser = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => handleSubmitCreateUser()} >
+                    {/* <Button variant="primary" onClick={() => handleSubmitCreateUser()} >
                         Save
-                    </Button>
+                    </Button> */}
                 </Modal.Footer>
             </Modal>
         </>
     );
 }
-export default ModalUpdateUser;
+export default ModalViewUser;

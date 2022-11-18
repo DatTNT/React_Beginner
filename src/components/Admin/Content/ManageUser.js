@@ -7,10 +7,12 @@ import { getAllUser } from "../../../services/apiServices"
 
 import TableUser from "./TableUser"
 import ModalUpdateUser from './ModalUpdateUser';
+import ModalViewUser from './ModalViewUser';
 
 const ManageUser = (props) => {
     const [showModelCreateUser, setshowModelCreateUser] = useState(false);
     const [showModelUpdateUser, setshowModelUpdateUser] = useState(false);
+    const [showModelViewUser, setshowModelViewUser] = useState(false);
     const [dataUpdate, setDataUpdate] = useState({});
 
     const [listUser, setListUsers] = useState([]);
@@ -20,11 +22,25 @@ const ManageUser = (props) => {
         fetchListUser()
     }, []);
 
+    //Btn Update
     const handleClickBtnUpdate = (user) => {
         setshowModelUpdateUser(true)
         setDataUpdate(user);
         console.log("update user: ", user);
     }
+
+
+
+    const handleClickBtnView = (user) => {
+        setshowModelViewUser(true)
+        setDataUpdate(user);
+        console.log("update user: ", user);
+    }
+
+    const resetUpdateData = () => {
+        setDataUpdate({});
+    }
+
     const fetchListUser = async () => {
         let res = await getAllUser();
         // console.log(res);
@@ -51,6 +67,7 @@ const ManageUser = (props) => {
                         <TableUser
                             listUsers={listUser}
                             handleClickBtnUpdate={handleClickBtnUpdate}
+                            handleClickBtnView={handleClickBtnView}
                         />
                     </div>
                     <ModalCreateUser
@@ -58,11 +75,21 @@ const ManageUser = (props) => {
                         setShow={setshowModelCreateUser}
                         fetchListUsers={fetchListUser}
                     />
+
                     <ModalUpdateUser
                         show={showModelUpdateUser}
                         setShow={setshowModelUpdateUser}
                         dataUpdate={dataUpdate}
+                        resetUpdateData={resetUpdateData}
+                        fetchListUsers={fetchListUser}
                     />
+
+                    {/* <ModalViewUser
+                        show={showModelViewUser}
+                        setShow={setshowModelViewUser}
+                        dataUpdate={dataUpdate}
+                        
+                    /> */}
                 </div>
             </div>
         </>
