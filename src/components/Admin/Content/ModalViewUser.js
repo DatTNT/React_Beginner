@@ -102,7 +102,7 @@ const ModalViewUser = (props) => {
             toast.error(data.EM)
         }
     }
-    console.log('check check Render: ');
+    // console.log('check check Render: ');
 
     return (
         <>
