@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { deleteUser } from '../../../services/apiServices'
+import { toast } from 'react-toastify';
 
 const ModalDeleteUser = (props) => {
     const { show, setShow, dataDelete } = props;
@@ -8,8 +10,22 @@ const ModalDeleteUser = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleClickDeleteUser = () => {
-        alert("hehehehehehehheheheehheheeheheh")
+    const handleClickDeleteUser = async () => {
+        // import 
+        let data = await deleteUser(dataDelete.id);
+
+        console.log(">>>> component res: ", data);
+
+        //check validate api Create Api
+        if (data && data.EC === 0) {
+            toast.success(data.EM);
+            handleClose();
+            await props.fetchListUsers();
+        }
+
+        if (data && data.EC !== 0) {
+            toast.error(data.EM)
+        }
     }
 
     console.log(props.dataDelete)
