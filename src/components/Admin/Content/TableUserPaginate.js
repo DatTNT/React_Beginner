@@ -9,7 +9,8 @@ const TableUserPaginate = (props) => {
     // console.log("hehehehhe");
 
     const handlePageClick = (event) => {
-        props.fetchListUserWithPaginate(+event.selected + 1)
+        props.fetchListUserWithPaginate(+event.selected + 1);
+        props.setCurrentPage(+event.selected + 1);
         console.log(`User requested page number ${event.selected}, which is offset `);
 
     };
@@ -73,6 +74,7 @@ const TableUserPaginate = (props) => {
                     containerClassName="pagination"
                     activeClassName="active"
                     renderOnZeroPageCount={null}
+                    forcePage={props.currentPage - 1}
                 />
             </div>
 
