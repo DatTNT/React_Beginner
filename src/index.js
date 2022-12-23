@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import HomePage from "./components/Home/HomePage";
 import Dashboard from './components/Admin/Content/DashBoard'
 import ManageUser from './components/Admin/Content/ManageUser'
+import Login from "./components/Auth/login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -25,6 +26,7 @@ root.render(
         <Route index element={<Dashboard />} />
         <Route path="manage-users" element={<ManageUser />} />
       </Route>
+      <Route path="/login" element={<Login />} />
     </Routes>
   </BrowserRouter>
 
