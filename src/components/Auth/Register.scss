@@ -1,0 +1,25 @@
+.register-container {
+  .header {
+    height: 45px;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    button {
+      margin-left: 10px;
+      border-radius: 5px;
+      padding: 5px 10px;
+      background: white;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+  .title {
+  }
+  .content {
+  }
+  .content-form {
+  }
+}

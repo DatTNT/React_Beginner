@@ -22,7 +22,6 @@ const Admin = (props) => {
                     <Outlet />
                 </div>
             </div>
-
         </div>
     )
 }

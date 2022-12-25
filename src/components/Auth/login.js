@@ -3,10 +3,13 @@ import './Login.scss'
 import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../services/apiServices';
 import { toast } from 'react-toastify';
+
 const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+
+
 
     const handleLogin = async () => {
         //validate
@@ -29,7 +32,9 @@ const Login = (props) => {
             <div className="header">
                 Don't have an caccount yet?
 
-                <button>Sign up</button>
+                <button onClick={() => { navigate('/register') }}>
+                    Sign up
+                </button>
 
             </div>
             <div className="title col-4 mx-auto">
