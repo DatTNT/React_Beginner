@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import _ from 'lodash'
 
 const ModalUpdateUser = (props) => {
-    const { show, setShow, dataUpdate } = props; //variable props is object then use {} 
+    const { show, setShow, dataUpdate, currentPage } = props; //variable props is object then use {} 
 
 
     const handleClose = () => {
@@ -87,14 +87,16 @@ const ModalUpdateUser = (props) => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             handleClose();
-            await props.fetchListUsers();
+            // await props.fetchListUsers();
+            await props.fetchListUserWithPaginate(currentPage);
+
         }
 
         if (data && data.EC !== 0) {
             toast.error(data.EM)
         }
     }
-    console.log('check check Render: ');
+    // console.log('check check Render: ');
 
     return (
         <>

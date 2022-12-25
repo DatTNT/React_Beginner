@@ -14,6 +14,12 @@
     }
     .admin-main {
       // border: 1px solid red;
+
+      .user-paginate {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
     }
   }
 }

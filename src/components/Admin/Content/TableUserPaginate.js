@@ -1,12 +1,19 @@
-import { useEffect } from "react";
-import { useState } from "react"
+import ReactPaginate from "https://cdn.skypack.dev/react-paginate@7.1.3";
+import { useEffect, useState } from "react";
 import { getAllUser } from "../../../services/apiServices"
 
-const Tableuser = (props) => {
+const TableUserPaginate = (props) => {
 
-    const { listUsers } = props;
+    const { listUsers, pageCount } = props;
 
     // console.log("hehehehhe");
+
+    const handlePageClick = (event) => {
+        props.fetchListUserWithPaginate(+event.selected + 1);
+        props.setCurrentPage(+event.selected + 1);
+        console.log(`User requested page number ${event.selected}, which is offset `);
+
+    };
 
     return (
         <>
@@ -47,9 +54,33 @@ const Tableuser = (props) => {
 
                 </tbody>
             </table>
+            <div className="user-paginate">
+                <ReactPaginate
+                    nextLabel="Next >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={pageCount}
+                    previousLabel="< Prev"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                    forcePage={props.currentPage - 1}
+                />
+            </div>
+
         </>
     )
 
 }
 
-export default Tableuser
+export default TableUserPaginate

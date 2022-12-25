@@ -21,6 +21,7 @@ const ModalViewUser = (props) => {
         setRole("USER")
         setImage("")
         setPreviewImage("")
+        props.resetUpdateData()
     };
 
     const [email, setEmail] = useState("");
@@ -101,7 +102,7 @@ const ModalViewUser = (props) => {
             toast.error(data.EM)
         }
     }
-    console.log('check check Render: ');
+    // console.log('check check Render: ');
 
     return (
         <>
@@ -157,7 +158,7 @@ const ModalViewUser = (props) => {
                                 <option value="ADMIN">ADMIN</option>
                             </select>
                         </div>
-                        <div className="col-md-12">
+                        {/* <div className="col-md-12">
                             <label className="form-label label-upload" htmlFor='labelUpload'>
                                 <FiPlus />
                                 Upload File Image
@@ -165,10 +166,11 @@ const ModalViewUser = (props) => {
                             <input type="file"
                                 id="labelUpload"
                                 onChange={(event) => handleUpload(event)}
+                                disabled={true}
                                 hidden
                             />
 
-                        </div>
+                        </div> */}
                         <div className="col-md-12 img-preview">
                             {previewImage ?
                                 <img src={previewImage} />
