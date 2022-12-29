@@ -1,5 +1,5 @@
 import HomPage from '../../assets/Video_HomePage.mp4';
-
+import { useSelector } from 'react-redux'
 const HomePage = (props) => {
     return (
         <div className="homepage-container">
