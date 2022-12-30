@@ -6,6 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux'
 
 const Header = () => {
+    //user state of reducer
     const isAuthenticated = useSelector(state => state.userDavid.isAuthenticated);
     const account = useSelector(state => state.userDavid.account);
 
