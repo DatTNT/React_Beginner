@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ModalCreateUser from './ModalCreateUser';
+import ModalCreateUser from './ModalCreateuser';
 import '../Content/ManageUser.scss';
 import { FcPlus } from 'react-icons/fc';
 import { useEffect } from "react";

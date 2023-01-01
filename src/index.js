@@ -9,15 +9,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Layout from "./Layout";
 
 import { Provider } from 'react-redux';
+import { store, persistor } from './redux/store';
+import 'nprogress/nprogress.css'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   // <React.StrictMode>
-  <BrowserRouter>
-    <Layout />
-  </BrowserRouter>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <Layout />
+      </BrowserRouter>
+    </PersistGate>
 
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
